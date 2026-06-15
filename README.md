@@ -1,55 +1,58 @@
 # Compact Desktop Indicator
 
-A minimalistic Virtual Desktop indicator widget for KDE Plasma 6 (Frameworks 6) that displays a horizontal or vertical row of indicators representing your virtual desktops.
+> A sleek, minimalistic, and highly configurable virtual desktop pager widget for the KDE Plasma 6 desktop panel.
 
-## Features
-
-- **Responsive Orientation:** Automatically aligns horizontally in horizontal panels and vertically in vertical panels.
-- **Custom Visuals:** Fully customizable colors, indicator size, and indicator spacing.
-- **System Theme Integration:** Falls back to system highlight and text colors by default, but allows overriding.
-- **Seamless Blending:** Adaptive background option that toggles between drawing the theme's default panel background and complete transparency/seamless blending.
-- **Smooth Animations:** Fades color and opacity changes when switching virtual desktops.
-- **Interactive Hover:** Visual micro-feedback on hovering over inactive indicators.
-- **Tooltips:** Shows the virtual desktop name when hovering over a dot.
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![KDE Plasma](https://img.shields.io/badge/KDE-Plasma%206-brightgreen.svg)](https://kde.org/plasma-desktop/)
+[![Platform](https://img.shields.io/badge/Platform-Wayland%20%2F%20X11-orange.svg)](#)
 
 ---
 
-## File Structure
+**Compact Desktop Indicator** is a modern virtual desktop pager designed for clean, aesthetic panel setups. It offers two customizable display types: classic minimalistic **Dots** and modern **Waybar-Style Rectangles** showing the active desktop numbers.
 
-```text
-kde-plasma-workspaces-widget/
-├── README.md
-└── package/
-    ├── metadata.json              # Applet identity and Plasma 6 requirements
-    └── contents/
-        ├── config/
-        │   ├── main.xml           # Configuration schema (types & defaults)
-        │   └── config.qml         # Binds config pages to settings
-        └── ui/
-            ├── main.qml           # Widget main window
-            └── configGeneral.qml  # Widget settings interface
-```
+## ✨ Features
+
+- 🎭 **Dual Display Styles:**
+  - **Dots (Circles):** Subtle, modern indicator dots.
+  - **Rectangles (Waybar Style):** Pill/box indicators displaying the desktop number.
+- 📐 **Adaptive Orientation:** Dynamically adjusts its layout direction (horizontal vs. vertical) based on the panel's current form factor.
+- 🎨 **Deep Color Customization:**
+  - Auto-integrates with your current system active theme colors.
+  - Toggle off system defaults to configure custom active/inactive background and text colors.
+- 🌫️ **Adaptive/Transparent Background:** Blends seamlessly with your panel's current theme, or drops the background structure entirely for a clean floating appearance.
+- ✨ **Premium Micro-Animations:** Fades colors and opacity transitions smoothly when switching virtual desktops (150ms).
+- 🖱️ **Interactive Hover Feedback:** Inactive buttons/dots light up dynamically when hovered, giving clear interactive responses without changing your system cursor.
+- 💬 **Desktop Names Tooltips:** Hovering over any indicator shows a tooltip with the desktop's configured name.
 
 ---
 
-## Installation & Packaging
+## 🛠️ Installation & Packaging
 
-### Local Installation
-To install the widget for your current user, run the following command from the project root:
+### Option 1: Local Installation (Development)
+To install the widget to your local user directory (`~/.local/share/plasma/plasmoids/`):
 
 ```bash
+# Clone the repository
+git clone git@github.com:txmydev/kde-compact-desktop-indicator.git
+cd kde-compact-desktop-indicator
+
+# Install package
 kpackagetool6 -t Plasma/Applet -i package/
 ```
 
-### Upgrading an Existing Installation
-If you modify the widget's code and want to apply the changes, run:
+### Option 2: Upgrading an Existing Installation
+When making modifications or updating to the latest commit:
 
 ```bash
 kpackagetool6 -t Plasma/Applet -u package/
 ```
 
-### Uninstalling the Widget
-To remove the widget from your system, run:
+> [!NOTE]
+> If changes do not reflect in your panel immediately, restart the Plasma shell:
+> `plasmashell --replace & disown`
+
+### Option 3: Uninstalling
+To completely remove the widget:
 
 ```bash
 kpackagetool6 -t Plasma/Applet -r org.kde.plasma.minimaldesktopindicators
@@ -57,13 +60,48 @@ kpackagetool6 -t Plasma/Applet -r org.kde.plasma.minimaldesktopindicators
 
 ---
 
-## Testing / Development
+## ⚙️ Configuration Options
 
-You can test the widget in a standalone test window without installing it or restarting your Plasma session by using `plasmoidviewer`:
+Open the **General Settings** panel from the widget's context menu to customize the following properties:
+
+| Setting Group | Option Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| **Layout** | **Display Style** | Enum | Switch between `Dots (Circles)` and `Rectangles (Waybar Style)`. |
+| | **Indicator Spacing** | Integer | Spacing in pixels between the indicators. |
+| | **Background** | Boolean | Toggle whether to blend widget background with the panel theme. |
+| **Colors** | **Use System Theme Colors** | Boolean | Fallback to KDE theme highlighted colors. |
+| | **Active Desktop Background** | Color | Custom background color for the active desktop. |
+| | **Inactive Desktop Background**| Color | Custom background color for inactive desktops. |
+| | **Active Text Color** | Color | Custom number text color for active desktop (Rectangles mode). |
+| | **Inactive Text Color** | Color | Custom number text color for inactive desktops (Rectangles mode). |
+| **Sizing** | **Indicator Size** | Integer | Indicator diameter in pixels (Dots mode). |
+| | **Button Width / Height** | Integer | Dimensions of the indicator box (Rectangles mode). |
+| | **Border Radius** | Integer | Border roundness (Rectangles mode). |
+| | **Font Size** | Integer | Workspace index text size (Rectangles mode). |
+
+---
+
+## 🧪 Testing in Standalone Window
+
+If you are developing or testing tweaks, you can view the widget in a standalone test frame using `plasmoidviewer`:
 
 ```bash
 plasmoidviewer -a package/
 ```
+*(Requires `plasma-sdk` package in your distribution).*
 
-> [!NOTE]
-> `plasmoidviewer` is part of the `plasma-sdk` package in most distributions (e.g., `sudo apt install plasma-sdk` on Debian/Ubuntu or `sudo pacman -S plasma-sdk` on Arch Linux).
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request with any fixes, localization strings, or feature enhancements.
+
+1. Fork the Repository.
+2. Create your Feature Branch (`git checkout -b feature/amazing-feature`).
+3. Commit your changes (`git commit -m 'Add some amazing feature'`).
+4. Push to the branch (`git push origin feature/amazing-feature`).
+5. Open a Pull Request.
+
+## 📄 License
+
+Distributed under the **GPL-3.0-or-later** License. See `LICENSE` for more information.
