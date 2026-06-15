@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <group name="General">
+        <entry name="displayType" type="String">
+            <default>dots</default>
+        </entry>
+        <entry name="useSystemColors" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="activeColor" type="Color">
+            <default></default>
+        </entry>
+        <entry name="inactiveColor" type="Color">
+            <default></default>
+        </entry>
+        <entry name="activeTextColor" type="Color">
+            <default></default>
+        </entry>
+        <entry name="inactiveTextColor" type="Color">
+            <default></default>
+        </entry>
+        <entry name="indicatorSize" type="Int">
+            <default>10</default>
+        </entry>
+        <entry name="indicatorSpacing" type="Int">
+            <default>6</default>
+        </entry>
+        <entry name="buttonWidth" type="Int">
+            <default>24</default>
+        </entry>
+        <entry name="buttonHeight" type="Int">
+            <default>20</default>
+        </entry>
+        <entry name="borderRadius" type="Int">
+            <default>6</default>
+        </entry>
+        <entry name="fontSize" type="Int">
+            <default>10</default>
+        </entry>
+        <entry name="backgroundBlending" type="Bool">
+            <default>true</default>
+        </entry>
+    </group>
+</kcfg>

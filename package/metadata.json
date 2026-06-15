@@ -1,0 +1,20 @@
+{
+    "KPlugin": {
+        "Name": "Compact Desktop Indicator",
+        "Description": "A minimalistic virtual desktop pager displaying indicators (dots/bars)",
+        "Icon": "user-desktop-symbolic",
+        "Id": "org.kde.plasma.minimaldesktopindicators",
+        "Version": "1.0.0",
+        "Website": "https://github.com/tomi/kde-plasma-workspaces-widget",
+        "Category": "Windows and Tasks",
+        "License": "GPL-3.0-or-later",
+        "Authors": [
+            {
+                "Name": "Developer",
+                "Email": "developer@example.com"
+            }
+        ]
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
